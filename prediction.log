@@ -1,0 +1,237 @@
+2025-06-09 21:51:00,979 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 21:51:00,982 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 21:51:02,513 - INFO - Translated text: Trump deploys California National Guard to LA to q...
+2025-06-09 21:51:02,514 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 21:51:03,182 - INFO - Translated text: There is no known translation for 'sdbv8w'....
+2025-06-09 21:51:03,184 - INFO - Preprocessing input text for WELFake
+2025-06-09 21:51:03,185 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 21:51:20,062 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 21:51:20,350 - INFO - Vectorizing text
+2025-06-09 21:51:20,356 - INFO - Extracting numerical features
+2025-06-09 21:51:20,367 - INFO - Combining features
+2025-06-09 21:51:20,378 - INFO - Making prediction with WELFake model
+2025-06-09 21:51:20,423 - INFO - WELFake Prediction: REAL (Confidence: 0.9990)
+2025-06-09 21:51:20,424 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 21:51:22,425 - INFO - Gemini Verdict: ** FAKE (Confidence: 90.00%)
+2025-06-09 21:51:22,425 - ERROR - Prediction failed: You must call wandb.init() before wandb.log()
+2025-06-09 21:58:53,173 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 21:58:53,174 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 21:58:55,452 - INFO - Translated text: Breaking News: Aliens Land on Earth!...
+2025-06-09 21:58:55,453 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 21:58:56,166 - INFO - Translated text: Scientists confirm that aliens have landed on Eart...
+2025-06-09 21:58:56,169 - INFO - Preprocessing input text for WELFake
+2025-06-09 21:58:56,170 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 21:58:57,353 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 21:58:57,449 - INFO - Vectorizing text
+2025-06-09 21:58:57,455 - INFO - Extracting numerical features
+2025-06-09 21:58:57,458 - INFO - Combining features
+2025-06-09 21:58:57,461 - INFO - Making prediction with WELFake model
+2025-06-09 21:58:57,509 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 21:58:57,511 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 21:58:59,414 - INFO - Gemini Verdict: ** FAKE (Confidence: 90.00%)
+2025-06-09 21:58:59,415 - INFO - Prediction Log: {'title': 'Breaking News: Aliens Land on Earth!', 'text': 'Scientists confirm that aliens have landed on Earth today, causing global panic.', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999958691235195, 'final_prediction': '** FAKE', 'final_confidence': 0.9}
+2025-06-09 22:04:08,736 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 22:04:08,737 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:04:09,762 - INFO - Translated text: Breaking News: Aliens Land on Earth!...
+2025-06-09 22:04:09,763 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:04:10,434 - INFO - Translated text: Scientists confirm that aliens have landed on Eart...
+2025-06-09 22:04:10,434 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:04:10,434 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:04:10,449 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:04:10,498 - INFO - Vectorizing text
+2025-06-09 22:04:10,500 - INFO - Extracting numerical features
+2025-06-09 22:04:10,502 - INFO - Combining features
+2025-06-09 22:04:10,504 - INFO - Making prediction with WELFake model
+2025-06-09 22:04:10,529 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 22:04:10,529 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:04:12,489 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:04:12,490 - INFO - Prediction Log: {'title': 'Breaking News: Aliens Land on Earth!', 'text': 'Scientists confirm that aliens have landed on Earth today, causing global panic.', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999958691235195, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:07:31,182 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 22:07:31,182 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:07:32,055 - INFO - Translated text: Breaking News: Aliens Land on Earth!...
+2025-06-09 22:07:32,056 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:07:33,327 - INFO - Translated text: Scientists confirm that aliens have landed on Eart...
+2025-06-09 22:07:33,328 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:07:33,329 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:07:33,366 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:07:33,462 - INFO - Vectorizing text
+2025-06-09 22:07:33,465 - INFO - Extracting numerical features
+2025-06-09 22:07:33,467 - INFO - Combining features
+2025-06-09 22:07:33,473 - INFO - Making prediction with WELFake model
+2025-06-09 22:07:33,536 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 22:07:33,536 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:07:35,569 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:07:35,572 - INFO - Prediction Log: {'title': 'Breaking News: Aliens Land on Earth!', 'text': 'Scientists confirm that aliens have landed on Earth today, causing global panic.', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999958691235195, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:08:30,395 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 22:08:30,395 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:08:31,090 - INFO - Translated text: New Policy Announced...
+2025-06-09 22:08:31,091 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:08:32,373 - INFO - Translated text: A new policy has been announced today....
+2025-06-09 22:08:32,373 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:08:32,374 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:08:32,393 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:08:32,449 - INFO - Vectorizing text
+2025-06-09 22:08:32,451 - INFO - Extracting numerical features
+2025-06-09 22:08:32,452 - INFO - Combining features
+2025-06-09 22:08:32,453 - INFO - Making prediction with WELFake model
+2025-06-09 22:08:32,471 - INFO - WELFake Prediction: REAL (Confidence: 0.9986)
+2025-06-09 22:08:32,472 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:08:34,449 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:08:34,450 - INFO - Prediction Log: {'title': 'New Policy Announced', 'text': 'A new policy has been announced today.', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9985547784381433, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:11:42,898 - INFO - Translating title and text with Gemini 1.5 Flash
+2025-06-09 22:11:42,899 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:11:44,065 - INFO - Translated text: New Policy Announced...
+2025-06-09 22:11:44,065 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:11:45,349 - INFO - Translated text: A new policy has been announced today....
+2025-06-09 22:11:45,351 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:11:45,352 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:11:45,381 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:11:45,464 - INFO - Vectorizing text
+2025-06-09 22:11:45,468 - INFO - Extracting numerical features
+2025-06-09 22:11:45,470 - INFO - Combining features
+2025-06-09 22:11:45,472 - INFO - Making prediction with WELFake model
+2025-06-09 22:11:45,520 - INFO - WELFake Prediction: REAL (Confidence: 0.9986)
+2025-06-09 22:11:45,521 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:11:46,957 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:11:46,959 - INFO - Prediction Log: {'title': 'New Policy Announced', 'text': 'A new policy has been announced today.', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9985547784381433, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:16:26,737 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:16:27,998 - INFO - Detected language: Hindi
+2025-06-09 22:16:27,999 - INFO - Input language detected: Hindi
+2025-06-09 22:16:28,003 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:16:28,004 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:16:29,297 - INFO - Translated text: Announcement of the new policy...
+2025-06-09 22:16:29,298 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:16:29,920 - INFO - Translated text: A new policy has been announced today....
+2025-06-09 22:16:29,923 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:16:29,929 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:16:29,985 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:16:30,054 - INFO - Vectorizing text
+2025-06-09 22:16:30,056 - INFO - Extracting numerical features
+2025-06-09 22:16:30,057 - INFO - Combining features
+2025-06-09 22:16:30,059 - INFO - Making prediction with WELFake model
+2025-06-09 22:16:30,106 - INFO - WELFake Prediction: REAL (Confidence: 0.9976)
+2025-06-09 22:16:30,107 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:16:32,324 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:16:32,325 - INFO - Translating explanation and tips back to Hindi
+2025-06-09 22:16:32,325 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-09 22:16:34,490 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-09 22:16:35,339 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-09 22:16:36,662 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-09 22:18:31,407 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:18:32,064 - INFO - Detected language: Tamil
+2025-06-09 22:18:32,065 - INFO - Input language detected: Tamil
+2025-06-09 22:18:32,066 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:18:32,067 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:18:33,455 - INFO - Translated text: New Education Policy Announcement...
+2025-06-09 22:18:33,456 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:18:34,220 - INFO - Translated text: The Tamil Nadu government announced a new educatio...
+2025-06-09 22:18:34,220 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:18:34,221 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:18:34,270 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:18:34,338 - INFO - Vectorizing text
+2025-06-09 22:18:34,341 - INFO - Extracting numerical features
+2025-06-09 22:18:34,342 - INFO - Combining features
+2025-06-09 22:18:34,345 - INFO - Making prediction with WELFake model
+2025-06-09 22:18:34,394 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 22:18:34,395 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:18:36,464 - INFO - Gemini Verdict: Unable to Decide (Confidence: 20.00%)
+2025-06-09 22:18:36,465 - INFO - Translating explanation and tips back to Tamil
+2025-06-09 22:18:36,465 - INFO - Translating text to Tamil with Gemini 1.5 Flash
+2025-06-09 22:18:38,753 - INFO - Translating text to Tamil with Gemini 1.5 Flash
+2025-06-09 22:18:39,760 - INFO - Translating text to Tamil with Gemini 1.5 Flash
+2025-06-09 22:18:40,999 - INFO - Translating text to Tamil with Gemini 1.5 Flash
+2025-06-09 22:19:14,940 - INFO - Scraping URL: https://www.bbc.com/news/live/clyg5x15n3zt
+2025-06-09 22:19:15,434 - INFO - Scraped Title: Greta Thunberg and other activists on Gaza aid boa..., Text: A yacht carrying activists and a small quantity of...
+2025-06-09 22:19:15,435 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:19:16,038 - INFO - Detected language: English
+2025-06-09 22:19:16,038 - INFO - Input language detected: English
+2025-06-09 22:19:16,039 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:19:16,039 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:19:17,427 - INFO - Translated text: Greta Thunberg and other activists on Gaza aid boa...
+2025-06-09 22:19:17,428 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:19:19,106 - INFO - Translated text: A yacht carrying activists and a small quantity of...
+2025-06-09 22:19:19,107 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:19:19,107 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:19:19,134 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:19:19,209 - INFO - Vectorizing text
+2025-06-09 22:19:19,212 - INFO - Extracting numerical features
+2025-06-09 22:19:19,214 - INFO - Combining features
+2025-06-09 22:19:19,216 - INFO - Making prediction with WELFake model
+2025-06-09 22:19:19,354 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 22:19:19,357 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:19:21,289 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:19:21,290 - INFO - Prediction Log: {'title': 'Greta Thunberg and other activists on Gaza aid boat will be deported, Israel says - live updates - BBC News', 'text': 'A yacht carrying activists and a small quantity of humanitarian aid that was trying to reach Gaza is continuing towards an Israeli port, Israel\'s foreign ministry says Climate activist Greta Thunberg and a French lawmaker are among 12 people aboard the Madleen that was intercepted by Israeli forces earlier today Israel brands the boat a "selfie yacht" and carrying "less than a single truckload of aid" and says the activists will be deported Thunberg said in a pre-recorded video message they had ', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:19:58,519 - INFO - Scraping URL: https://www.bbc.com/news/live/cvg7vxx888kt
+2025-06-09 22:19:59,021 - INFO - Scraped Title: LA protests live: Trump defends deploying National..., Text: Families Protest LA ICE Detentions BBC News This v...
+2025-06-09 22:19:59,023 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:19:59,623 - INFO - Detected language: English
+2025-06-09 22:19:59,623 - INFO - Input language detected: English
+2025-06-09 22:19:59,625 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:19:59,625 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:20:00,941 - INFO - Translated text: LA protests live: Trump defends deploying National...
+2025-06-09 22:20:00,942 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:20:02,922 - INFO - Translated text: Families Protest LA ICE Detentions BBC News This v...
+2025-06-09 22:20:02,923 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:20:02,924 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:20:02,955 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:20:03,026 - INFO - Vectorizing text
+2025-06-09 22:20:03,028 - INFO - Extracting numerical features
+2025-06-09 22:20:03,030 - INFO - Combining features
+2025-06-09 22:20:03,031 - INFO - Making prediction with WELFake model
+2025-06-09 22:20:03,065 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-09 22:20:03,065 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:20:05,131 - INFO - Gemini Verdict: REAL (Confidence: 95.00%)
+2025-06-09 22:20:05,131 - INFO - Prediction Log: {'title': 'LA protests live: Trump defends deploying National Guard as California governor Newsom to sue - BBC News', 'text': 'Families Protest LA ICE Detentions BBC News This video can not be played Families Protest LA ICE Detentions BBC News Donald Trump has defended his decision to deploy the National Guard to Los Angeles despite criticism from California officials The US president says LA would have been "completely obliterated" otherwise and hits out at California Governor Gavin Newsom, who says he\'s suing the Trump administration - more on that here Demonstrations began outside in downtown LA on Friday after it em', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'final_prediction': 'REAL', 'final_confidence': 0.95}
+2025-06-09 22:20:31,698 - INFO - Scraping URL: https://www.hindustantimes.com/trending/disturbing-video-shows-indian-student-in-us-pinned-to-floor-handcuffed-before-deportation-101749462177837.html
+2025-06-09 22:20:32,287 - ERROR - URL scraping failed: 401 Client Error: Unauthorized for url: https://www.hindustantimes.com/trending/disturbing-video-shows-indian-student-in-us-pinned-to-floor-handcuffed-before-deportation-101749462177837.html
+2025-06-09 22:20:32,288 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:20:32,846 - INFO - Detected language: English
+2025-06-09 22:20:32,847 - INFO - Input language detected: English
+2025-06-09 22:20:32,849 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:20:32,850 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:20:34,215 - INFO - Translated text: Sample Title...
+2025-06-09 22:20:34,219 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:20:34,864 - INFO - Translated text: Sample text for testing purposes....
+2025-06-09 22:20:34,866 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:20:34,867 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:20:34,897 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:20:34,968 - INFO - Vectorizing text
+2025-06-09 22:20:34,971 - INFO - Extracting numerical features
+2025-06-09 22:20:34,975 - INFO - Combining features
+2025-06-09 22:20:34,977 - INFO - Making prediction with WELFake model
+2025-06-09 22:20:35,013 - INFO - WELFake Prediction: REAL (Confidence: 0.9978)
+2025-06-09 22:20:35,014 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:20:36,903 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:20:36,904 - INFO - Prediction Log: {'title': 'Sample Title', 'text': 'Sample text for testing purposes.', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9977679892681163, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:21:06,291 - INFO - Scraping URL: https://totallyfakenews.com/alien-invasion-2025
+2025-06-09 22:21:07,271 - ERROR - URL scraping failed: 410 Client Error: Gone for url: https://totallyfakenews.com/alien-invasion-2025
+2025-06-09 22:21:07,272 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-09 22:21:07,826 - INFO - Detected language: English
+2025-06-09 22:21:07,827 - INFO - Input language detected: English
+2025-06-09 22:21:07,827 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-09 22:21:07,827 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:21:09,099 - INFO - Translated text: Sample Title...
+2025-06-09 22:21:09,099 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-09 22:21:09,681 - INFO - Translated text: Sample text for testing purposes....
+2025-06-09 22:21:09,683 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:21:09,683 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:21:09,710 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:21:09,788 - INFO - Vectorizing text
+2025-06-09 22:21:09,790 - INFO - Extracting numerical features
+2025-06-09 22:21:09,792 - INFO - Combining features
+2025-06-09 22:21:09,794 - INFO - Making prediction with WELFake model
+2025-06-09 22:21:09,830 - INFO - WELFake Prediction: REAL (Confidence: 0.9978)
+2025-06-09 22:21:09,831 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:21:11,930 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:21:11,931 - INFO - Prediction Log: {'title': 'Sample Title', 'text': 'Sample text for testing purposes.', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9977679892681163, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-09 22:22:16,218 - INFO - Preprocessing input text for WELFake
+2025-06-09 22:22:16,219 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-09 22:22:16,261 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-09 22:22:16,341 - INFO - Vectorizing text
+2025-06-09 22:22:16,346 - INFO - Extracting numerical features
+2025-06-09 22:22:16,348 - INFO - Combining features
+2025-06-09 22:22:16,350 - INFO - Making prediction with WELFake model
+2025-06-09 22:22:16,393 - INFO - WELFake Prediction: REAL (Confidence: 0.9034)
+2025-06-09 22:22:16,395 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-09 22:22:17,372 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-09 22:22:17,372 - INFO - Prediction Log: {'title': 'Image-based News', 'text': 'Image input', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9034395174344348, 'final_prediction': 'FAKE', 'final_confidence': 0.9}

@@ -31,25 +31,36 @@ st.markdown("""
             color: #28a745;
             font-weight: bold;
         }
+        .prediction-uncertain {
+            color: #ffc107;
+            font-weight: bold;
+        }
     </style>
 """, unsafe_allow_html=True)
 
 # Streamlit UI
 st.markdown("<h1 class='text-center mb-4'>Fake News Detector</h1>", unsafe_allow_html=True)
-st.markdown("<p class='text-center text-muted mb-4'>Enter a news article's title and text, or a URL, to check if it's fake or real.</p>", unsafe_allow_html=True)
+st.markdown("<p class='text-center text-muted mb-4'>Enter a news article's title and text, a URL, or upload an image to check if it's fake or real.</p>", unsafe_allow_html=True)
 
 # Input form
 with st.form(key="news_form", clear_on_submit=False):
-    input_type = st.radio("Choose input type:", ("Title and Text", "URL"), horizontal=True)
+    input_type = st.radio("Choose input type:", ("Title and Text", "URL", "Image"), horizontal=True)
     
     if input_type == "Title and Text":
         title = st.text_input("Title", placeholder="Enter the news title")
         text = st.text_area("Text", placeholder="Enter the news text", height=150)
         url = None
-    else:
+        image = None
+    elif input_type == "URL":
         url = st.text_input("URL", placeholder="Enter the news URL (e.g., https://www.bbc.com/news)")
         title = None
         text = None
+        image = None
+    else:  # Image
+        image = st.file_uploader("Upload an image containing news content", type=["jpg", "jpeg", "png"])
+        title = None
+        text = None
+        url = None
 
     submit_button = st.form_submit_button("Check News", use_container_width=True, type="primary")
 
@@ -59,15 +70,20 @@ if submit_button:
         st.warning("Please provide both a title and text.")
     elif input_type == "URL" and not url:
         st.warning("Please provide a URL.")
+    elif input_type == "Image" and not image:
+        st.warning("Please upload an image.")
     else:
         with st.spinner("Analyzing news..."):
             try:
                 # Run the async prediction function
-                label, confidence, explanation, user_tips = asyncio.run(predict_welfake(title=title, text=text, url=url))
+                label, confidence, explanation, user_tips = asyncio.run(predict_welfake(title=title, text=text, url=url, image=image))
                 
                 # Display results
                 st.markdown("<div class='result-box'>", unsafe_allow_html=True)
-                prediction_class = "prediction-fake" if label == "FAKE" else "prediction-real"
+                if label == "Unable to Decide":
+                    prediction_class = "prediction-uncertain"
+                else:
+                    prediction_class = "prediction-fake" if label == "FAKE" else "prediction-real"
                 st.markdown(f"<h3>Prediction: <span class='{prediction_class}'>{label}</span></h3>", unsafe_allow_html=True)
                 st.markdown(f"<p><strong>Confidence:</strong> {confidence:.2%}</p>", unsafe_allow_html=True)
                 st.markdown(f"<p><strong>Explanation:</strong> {explanation}</p>", unsafe_allow_html=True)

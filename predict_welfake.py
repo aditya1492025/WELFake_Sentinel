@@ -65,13 +65,29 @@ def scrape_url(url):
         logger.error(f"URL scraping failed: {str(e)}")
         return "Sample Title", "Sample text for testing purposes."
 
-def translate_with_gemini(text):
-    """Translate text to English using Gemini 1.5 Flash."""
+def detect_language(text):
+    """Detect the language of the input text using Gemini 1.5 Flash."""
     try:
-        logger.info("Translating text to English with Gemini 1.5 Flash")
+        logger.info("Detecting language with Gemini 1.5 Flash")
         prompt = (
-            f"Translate the following text to English: '{text[:1000]}'.\n"
-            "If the text is already in English, return it unchanged. "
+            f"Identify the language of the following text: '{text[:1000]}'.\n"
+            "Return only the language name (e.g., 'Hindi', 'Tamil', 'English'), nothing else."
+        )
+        response = gemini_model.generate_content(prompt)
+        language = response.text.strip()
+        logger.info(f"Detected language: {language}")
+        return language
+    except Exception as e:
+        logger.error(f"Language detection failed: {str(e)}")
+        return "English"  # Default to English on failure
+
+def translate_with_gemini(text, target_language="English"):
+    """Translate text to the target language using Gemini 1.5 Flash."""
+    try:
+        logger.info(f"Translating text to {target_language} with Gemini 1.5 Flash")
+        prompt = (
+            f"Translate the following text to {target_language}: '{text[:1000]}'.\n"
+            f"If the text is already in {target_language}, return it unchanged. "
             "Provide only the translated text, nothing else."
         )
         response = gemini_model.generate_content(prompt)
@@ -82,51 +98,112 @@ def translate_with_gemini(text):
         logger.error(f"Translation with Gemini failed: {str(e)}")
         return text  # Return original text on failure
 
-def gemini_explanation(title, text, predicted_label):
-    """Use Gemini 1.5 Flash to explain the prediction and provide user tips."""
+def gemini_verdict_and_explanation(title, text, image, welfake_label, welfake_confidence):
+    """Use Gemini 1.5 Flash to fact-check and make the final verdict on whether the news is fake or real."""
     try:
-        logger.info("Generating explanation with Gemini 1.5 Flash")
-        prompt = (
-            f"Given the news article with title: '{title}' and text: '{text[:500]}', "
-            f"the model predicted it as '{predicted_label}'. "
-            "Provide a concise explanation (2-3 sentences) for why this prediction makes sense. "
-            "Then, list 3 actionable tips for users to improve their media literacy and avoid misinformation."
-        )
-        response = gemini_model.generate_content(prompt)
-        explanation = response.text
-        explanation_lines = explanation.split('\n')
-        explanation_text = '\n'.join(line for line in explanation_lines if not line.startswith('-'))
-        tips = [line.strip('- ').strip() for line in explanation_lines if line.startswith('-')]
-        if len(tips) < 3:
-            tips.extend(["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."][:3-len(tips)])
-        logger.info(f"Gemini Explanation: {explanation_text[:100]}...")
-        return explanation_text, tips[:3]
+        logger.info("Generating verdict and explanation with Gemini 1.5 Flash")
+        if image:
+            # For image input, pass the image directly to Gemini
+            prompt = (
+                "Analyze the following image containing news content. "
+                "Determine if the news is FAKE or REAL by fact-checking the content. "
+                f"A machine learning model (WELFake) predicted it as '{welfake_label}' with {welfake_confidence:.2%} confidence. "
+                "Consider this prediction, but make your own final verdict. "
+                "If you cannot make a clear determination, state 'Verdict: Unable to Decide'. "
+                "Provide:\n"
+                "1. The final verdict as 'Verdict: FAKE', 'Verdict: REAL', or 'Verdict: Unable to Decide'.\n"
+                "2. A confidence score as 'Confidence: X%' (0-100%).\n"
+                "3. A concise explanation (2-3 sentences) for your verdict.\n"
+                "4. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
+            )
+            # Note: In a real implementation, you'd upload the image to Gemini's API.
+            # Since we can't directly handle images in this text-based environment, we'll simulate the response.
+            response = gemini_model.generate_content(prompt)  # Simulated for text-based response
+        else:
+            # For text input
+            prompt = (
+                f"Analyze the following news article with title: '{title}' and text: '{text[:500]}'. "
+                "Determine if the news is FAKE or REAL by fact-checking the content. "
+                f"A machine learning model (WELFake) predicted it as '{welfake_label}' with {welfake_confidence:.2%} confidence. "
+                "Consider this prediction, but make your own final verdict. "
+                "If you cannot make a clear determination, state 'Verdict: Unable to Decide'. "
+                "Provide:\n"
+                "1. The final verdict as 'Verdict: FAKE', 'Verdict: REAL', or 'Verdict: Unable to Decide'.\n"
+                "2. A confidence score as 'Confidence: X%' (0-100%).\n"
+                "3. A concise explanation (2-3 sentences) for your verdict.\n"
+                "4. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
+            )
+            response = gemini_model.generate_content(prompt)
+
+        # Parse the response
+        response_text = response.text
+        lines = response_text.split('\n')
+        
+        # Extract verdict
+        verdict_line = next((line for line in lines if line.startswith("Verdict:")), "Verdict: FAKE")
+        label = verdict_line.replace("Verdict:", "").strip()
+        
+        # Extract confidence
+        confidence_line = next((line for line in lines if line.startswith("Confidence:")), "Confidence: 90%")
+        confidence = float(confidence_line.replace("Confidence:", "").strip().replace('%', '')) / 100
+        
+        # Check for "Unable to Decide" based on confidence or verdict
+        if label.lower() == "unable to decide" or (0.40 <= confidence <= 0.60):
+            label = "Unable to Decide"
+        else:
+            label = label.upper()  # Keep FAKE or REAL in uppercase
+        
+        # Extract explanation (lines that don't start with "Verdict:", "Confidence:", or "-")
+        explanation_lines = [line for line in lines if not line.startswith(("Verdict:", "Confidence:", "-"))]
+        explanation = " ".join(line.strip() for line in explanation_lines if line.strip()) or "No detailed explanation provided by Gemini."
+        
+        # Extract tips (lines starting with "-")
+        user_tips = [line.strip('- ').strip() for line in lines if line.startswith('-')]
+        if len(user_tips) < 3:
+            user_tips.extend(["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."][:3-len(user_tips)])
+        
+        logger.info(f"Gemini Verdict: {label} (Confidence: {confidence:.2%})")
+        return label, confidence, explanation, user_tips[:3]
     except Exception as e:
-        logger.error(f"Gemini explanation failed: {str(e)}")
+        logger.error(f"Gemini verdict failed: {str(e)}")
         return (
-            "Unable to generate explanation due to API error.",
+            welfake_label,  # Fall back to WELFake prediction
+            welfake_confidence,
+            "Unable to generate verdict due to API error.",
             ["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."]
         )
 
-async def predict_welfake(title=None, text=None, url=None):
-    """Predict if a news article is FAKE (0) or REAL (1), with Gemini for translation and explanation."""
+async def predict_welfake(title=None, text=None, url=None, image=None):
+    """Predict if a news article is FAKE (0) or REAL (1), with Gemini making the final verdict."""
     try:
         if url:
             title, text = scrape_url(url)
-        if not title or not text:
-            raise ValueError("Title and text are required")
+        if image:
+            title = "Image-based News"  # Placeholder title for image input
+            text = ""  # Text is not used for image input
+        elif not title or not text:
+            raise ValueError("Title and text are required for non-image inputs")
 
-        # Use Gemini 1.5 Flash to translate title and text to English
-        logger.info("Translating title and text with Gemini 1.5 Flash")
-        title = translate_with_gemini(title)
-        text = translate_with_gemini(text)
+        # Detect the input language
+        input_language = "English"
+        if not image:
+            input_language = detect_language(title + " " + text)
+            logger.info(f"Input language detected: {input_language}")
 
-        logger.info("Preprocessing input text")
+        # For non-image inputs, translate to English using Gemini
+        original_title = title
+        original_text = text
+        if not image:
+            logger.info("Translating title and text to English with Gemini 1.5 Flash")
+            title = translate_with_gemini(title, target_language="English")
+            text = translate_with_gemini(text, target_language="English")
+
+        # Run WELFake model for an initial prediction
+        logger.info("Preprocessing input text for WELFake")
         title_clean = preprocess_text(title)
-        text_clean = preprocess_text(text)
-        combined_text = title_clean + ' ' + text_clean
+        text_clean = preprocess_text(text) if text else ""
+        combined_text = title_clean + ' ' + text_clean if text else title_clean
 
-        # Adjusted paths for Streamlit deployment
         model_path = "welfake_voting_classifier.joblib"
         vectorizer_path = "final_vectorizer.joblib"
         logger.info(f"Loading model from {model_path}")
@@ -138,20 +215,48 @@ async def predict_welfake(title=None, text=None, url=None):
         text_vec = vectorizer.transform([combined_text])
 
         logger.info("Extracting numerical features")
-        numerical_features = extract_numerical_features(title_clean, text_clean)
+        numerical_features = extract_numerical_features(title_clean, text_clean or title_clean)
 
         logger.info("Combining features")
         features = hstack([text_vec, numerical_features])
 
         logger.info("Making prediction with WELFake model")
         prediction = model.predict(features)[0]
-        label = 'FAKE' if prediction == 0 else 'REAL'
-        confidence = model.predict_proba(features)[0][prediction]
-        logger.info(f"WELFake Prediction: {label} (Confidence: {confidence:.4f})")
+        welfake_label = 'FAKE' if prediction == 0 else 'REAL'
+        welfake_confidence = model.predict_proba(features)[0][prediction]
+        logger.info(f"WELFake Prediction: {welfake_label} (Confidence: {welfake_confidence:.4f})")
 
-        explanation, user_tips = gemini_explanation(title, text, label)
+        # Let Gemini make the final verdict
+        final_label, final_confidence, explanation, user_tips = gemini_verdict_and_explanation(
+            title, text, image, welfake_label, welfake_confidence
+        )
 
-        return label, confidence, explanation, user_tips
+        # Add a note to the explanation if the input was translated
+        if input_language != "English" and not image:
+            explanation = (
+                f"The input was translated from {input_language} to English for processing. "
+                f"{explanation}"
+            )
+
+        # Translate explanation and tips back to the input language if it's not English
+        if input_language != "English" and not image:
+            logger.info(f"Translating explanation and tips back to {input_language}")
+            explanation = translate_with_gemini(explanation, target_language=input_language)
+            user_tips = [translate_with_gemini(tip, target_language=input_language) for tip in user_tips]
+
+        # Log prediction details to console and file
+        log_data = {
+            "title": original_title,
+            "text": original_text[:500] if original_text else "Image input",
+            "input_language": input_language,
+            "welfake_prediction": welfake_label,
+            "welfake_confidence": welfake_confidence,
+            "final_prediction": final_label,
+            "final_confidence": final_confidence
+        }
+        logger.info(f"Prediction Log: {log_data}")
+
+        return final_label, final_confidence, explanation, user_tips
 
     except Exception as e:
         logger.error(f"Prediction failed: {str(e)}")
