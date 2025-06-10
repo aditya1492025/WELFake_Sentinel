@@ -1,7 +1,10 @@
-streamlit
+streamlit==1.38.0
 pandas
-scikit-learn
-joblib
 requests
 beautifulsoup4
 google-generativeai
+python-dateutil
+joblib
+scikit-learn
+scipy
+nest_asyncio
