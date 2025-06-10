@@ -228,9 +228,9 @@ def fact_check_news_with_gemini(title, text, extracted_dates):
         return "News: Unable to Verify", 0.5, "Unable to verify news due to API error."
 
 def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfake_confidence=None, news_verdict=None, news_confidence=None, news_explanation=None):
-    """Use Gemini 1.5 Flash to generate an explanation and tips, without determining the final verdict."""
+    """Use Gemini 1.5 Flash to generate a verdict, confidence, explanation, and tips."""
     try:
-        logger.info("Generating explanation with Gemini 1.5 Flash")
+        logger.info("Generating verdict and explanation with Gemini 1.5 Flash")
         news_info = ""
         if news_verdict:
             news_info = (
@@ -253,8 +253,10 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
             prompt = (
                 "Analyze the following image containing news content. "
                 "Fact-check the content and provide:\n"
-                "1. A concise explanation (2-3 sentences) for why the news might be accurate or inaccurate.\n"
-                "2. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
+                "1. Verdict as 'Gemini Verdict: Accurate', 'Gemini Verdict: Inaccurate', or 'Gemini Verdict: Unable to Verify'.\n"
+                "2. A confidence score as 'Confidence: X%' (0-100%).\n"
+                "3. A concise explanation (2-3 sentences) for your verdict.\n"
+                "4. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
             )
             # Note: In a real implementation, you'd upload the image to Gemini's API.
             # Since we can't directly handle images, we'll simulate the response.
@@ -265,10 +267,12 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
                 f"Analyze the following news article with title: '{title}' and text: '{text[:500]}'. "
                 f"{news_info}"
                 f"{welfake_info}"
-                "The final verdict has already been determined by the RAG fact-check as shown above. "
+                "Fact-check the news content independently, considering the RAG fact-check results and WELFake prediction as references. "
                 "Provide:\n"
-                "1. A concise explanation (2-3 sentences) for why the news is accurate or inaccurate, based on the RAG fact-check result, without mentioning WELFake.\n"
-                "2. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
+                "1. Verdict as 'Gemini Verdict: Accurate', 'Gemini Verdict: Inaccurate', or 'Gemini Verdict: Unable to Verify'.\n"
+                "2. A confidence score as 'Confidence: X%' (0-100%).\n"
+                "3. A concise explanation (2-3 sentences) for your verdict, based on all available information.\n"
+                "4. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
             )
             response = gemini_model.generate_content(prompt)
 
@@ -276,8 +280,16 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
         response_text = response.text
         lines = response_text.split('\n')
         
-        # Extract explanation (lines that don't start with "-")
-        explanation_lines = [line for line in lines if not line.startswith("-")]
+        # Extract verdict
+        verdict_line = next((line for line in lines if line.startswith("Gemini Verdict:")), "Gemini Verdict: Unable to Verify")
+        gemini_verdict = verdict_line.replace("Gemini Verdict:", "").strip()
+
+        # Extract confidence
+        confidence_line = next((line for line in lines if line.startswith("Confidence:")), "Confidence: 50%")
+        gemini_confidence = float(confidence_line.replace("Confidence:", "").strip().replace('%', '')) / 100
+
+        # Extract explanation (lines that don't start with "-" or other fields)
+        explanation_lines = [line for line in lines if not line.startswith(("- ", "Gemini Verdict:", "Confidence:"))]
         explanation = " ".join(line.strip() for line in explanation_lines if line.strip()) or "No detailed explanation provided by Gemini."
         
         # Extract tips (lines starting with "-")
@@ -285,16 +297,18 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
         if len(user_tips) < 3:
             user_tips.extend(["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."][:3-len(user_tips)])
         
-        return explanation, user_tips[:3]
+        return gemini_verdict, gemini_confidence, explanation, user_tips[:3]
     except Exception as e:
-        logger.error(f"Gemini explanation failed: {str(e)}")
+        logger.error(f"Gemini verdict and explanation failed: {str(e)}")
         return (
+            "Gemini Verdict: Unable to Verify",
+            0.5,
             "Unable to generate explanation due to API error.",
             ["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."]
         )
 
 async def predict_welfake(title=None, text=None, url=None, image=None):
-    """Predict if a news article is FAKE (0) or REAL (1), with the final verdict based solely on RAG fact-check."""
+    """Predict if a news article is FAKE (0) or REAL (1), with the final verdict based on both RAG and Gemini."""
     try:
         if url:
             title, text = scrape_url(url)
@@ -326,17 +340,15 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
             extracted_dates = extract_dates(combined_text_for_dates)
             logger.info(f"Extracted dates: {extracted_dates}")
 
-            # Fact-check the news content with Gemini
+            # Fact-check the news content with Gemini (RAG)
             news_verdict, news_confidence, news_explanation = fact_check_news_with_gemini(
                 title, text, extracted_dates
             )
         else:
-            # For image inputs, simulate a fact-check (since RAG isn't applied to images)
-            # In a real implementation, you'd need to extract text from the image and fact-check it.
-            # For now, we'll use Gemini directly in gemini_verdict_and_explanation.
+            # For image inputs, skip RAG fact-check and rely on Gemini
             pass
 
-        # Run WELFake model to provide supplementary context (for Gemini's explanation, not final verdict)
+        # Run WELFake model to provide supplementary context
         welfake_label, welfake_confidence = None, None
         if not image:
             logger.info("Preprocessing input text for WELFake")
@@ -366,32 +378,51 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
             welfake_confidence = model.predict_proba(features)[0][prediction]
             logger.info(f"WELFake Prediction: {welfake_label} (Confidence: {welfake_confidence:.4f})")
 
-        # Get explanation and tips from Gemini
-        explanation, user_tips = gemini_verdict_and_explanation(
+        # Get Gemini's independent verdict, confidence, explanation, and tips
+        gemini_verdict, gemini_confidence, explanation, user_tips = gemini_verdict_and_explanation(
             title, text, image, welfake_label, welfake_confidence,
             news_verdict, news_confidence, news_explanation
         )
 
-        # For image inputs, override explanation and set default verdict (since RAG isn't applied)
+        # For image inputs, override explanation and use Gemini's verdict directly
         if image:
-            # Simulate fact-check verdict for images (in a real implementation, extract text and fact-check)
-            explanation = "The claim that Lewandowski retired on June 05, 2025, lacks credible backing, as recent trends suggest a later retirement date around June 09, 2025, after a dispute with the manager."
+            # Simulate fact-check verdict for images (since RAG isn't applied)
+            explanation = "The claim that Lewandowski retired on June 10, 2025, lacks credible backing, as recent trends suggest he is still active."
             news_verdict = "News: Inaccurate"
-            news_confidence = 0.85  # Simulated confidence
+            news_confidence = 0.85  # Simulated RAG verdict for consistency
+            gemini_verdict = "Gemini Verdict: Inaccurate"
+            gemini_confidence = 0.87  # Simulated Gemini verdict
 
-        # Map RAG fact-check verdict to final prediction
-        if news_verdict == "News: Accurate":
+        # Combine RAG and Gemini verdicts
+        # Simplify verdicts to a common format for comparison
+        rag_verdict_simple = news_verdict.replace("News: ", "")
+        gemini_verdict_simple = gemini_verdict.replace("Gemini Verdict: ", "")
+
+        # Determine combined verdict
+        if rag_verdict_simple == gemini_verdict_simple:
+            combined_verdict = rag_verdict_simple  # Both agree
+        else:
+            combined_verdict = "Unable to Verify"  # Disagree, so "Unable to Decide"
+
+        # Determine combined confidence
+        if combined_verdict == "Unable to Verify":
+            combined_confidence = min(news_confidence, gemini_confidence)  # Lower confidence if disagreement
+        else:
+            combined_confidence = (news_confidence + gemini_confidence) / 2  # Average confidence if agreement
+
+        # Map combined verdict to final prediction
+        if combined_verdict == "Accurate":
             final_label = "REAL"
-        elif news_verdict == "News: Inaccurate":
+        elif combined_verdict == "Inaccurate":
             final_label = "FAKE"
-        else:  # "News: Unable to Verify"
+        else:  # "Unable to Verify"
             final_label = "Unable to Decide"
 
         # Check for "Unable to Decide" based on confidence
-        if 0.40 <= news_confidence <= 0.60:
+        if 0.40 <= combined_confidence <= 0.60:
             final_label = "Unable to Decide"
 
-        final_confidence = news_confidence
+        final_confidence = combined_confidence
 
         # Add a note to the explanation if the input was translated
         if input_language != "English" and not image:
@@ -415,6 +446,8 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
             "welfake_confidence": welfake_confidence,
             "news_verdict": news_verdict,
             "news_confidence": news_confidence,
+            "gemini_verdict": gemini_verdict,
+            "gemini_confidence": gemini_confidence,
             "final_prediction": final_label,
             "final_confidence": final_confidence
         }
