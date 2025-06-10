@@ -12,7 +12,7 @@ st.markdown("""
         .custom-container {
             background-color: #f8f9fa;
             padding: 20px;
-            min-height: 100vh;
+            min-height: 5vh;
         }
         .input-field {
             margin-bottom: 1rem;
