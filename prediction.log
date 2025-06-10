@@ -392,3 +392,239 @@
 2025-06-10 11:29:29,786 - INFO - WELFake Prediction: REAL (Confidence: 0.9997)
 2025-06-10 11:29:29,787 - INFO - Generating explanation with Gemini 1.5 Flash
 2025-06-10 11:29:31,613 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'this yeear that is 2025 csk wins ipl final ', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9997490533312133, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:15:26,484 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:15:28,559 - INFO - Detected language: English
+2025-06-10 12:15:28,559 - INFO - Input language detected: English
+2025-06-10 12:15:28,560 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:15:28,560 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:15:29,408 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 12:15:29,408 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:15:30,508 - INFO - Translated text: In 2025, CSK won the IPL final by defeating MI....
+2025-06-10 12:15:30,509 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:15:30,510 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:15:30,511 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. In 2025, CSK won the IPL final by defeating MI. June 10, 2025
+2025-06-10 12:15:38,292 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:15:38,294 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:15:38,294 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:15:40,627 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:15:40,747 - INFO - Vectorizing text
+2025-06-10 12:15:40,755 - INFO - Extracting numerical features
+2025-06-10 12:15:40,759 - INFO - Combining features
+2025-06-10 12:15:40,767 - INFO - Making prediction with WELFake model
+2025-06-10 12:15:40,816 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:15:40,817 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:15:42,458 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'the year 2025 csk win the ipl final by defeating mi', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999831548328638, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:20:02,992 - INFO - Scraping URL: https://www.bbc.com/news/articles/c80k45vm35go
+2025-06-10 12:20:03,435 - INFO - Scraped Title: HBO and CNN owner Warner Bros Discovery to split i..., Text: The owner of CNN and HBO Max, Warner Bros Discover...
+2025-06-10 12:20:03,449 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:20:04,434 - INFO - Detected language: English
+2025-06-10 12:20:04,437 - INFO - Input language detected: English
+2025-06-10 12:20:04,437 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:20:04,438 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:20:05,700 - INFO - Translated text: Warner Bros. Discovery, the parent company of HBO ...
+2025-06-10 12:20:05,705 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:20:07,625 - INFO - Translated text: Warner Bros Discovery, the owner of CNN and HBO Ma...
+2025-06-10 12:20:07,626 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:20:07,626 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:20:07,627 - INFO - Searching Google CSE with query: Warner Bros. Discovery, the parent company of HBO and CNN, to split in two. Warner Bros Discovery, the owner of CNN and HBO Max, says it will split into two companies by the mi June 10, 2025
+2025-06-10 12:20:17,739 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:20:17,740 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:20:17,741 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:20:17,795 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:20:17,913 - INFO - Vectorizing text
+2025-06-10 12:20:17,916 - INFO - Extracting numerical features
+2025-06-10 12:20:17,918 - INFO - Combining features
+2025-06-10 12:20:17,920 - INFO - Making prediction with WELFake model
+2025-06-10 12:20:17,967 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:20:17,967 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:20:19,859 - INFO - Prediction Log: {'title': 'HBO and CNN owner Warner Bros Discovery to split in two', 'text': 'The owner of CNN and HBO Max, Warner Bros Discovery, says it will split into two  companies by the middle of next year. The US media giant plans to separate its studio and streaming business away from its more traditional cable television networks. The move comes as streaming services attract hundreds of millions of users around the world but cable TV has seen audiences decline in recent years. HBO Max has enjoyed success with shows including Succession, The White Lotus and The Last of Us - whil', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:21:05,386 - INFO - Scraping URL: https://indianexpress.com/about/chandrayaan-3/
+2025-06-10 12:21:07,227 - INFO - Scraped Title: Latest News on Chandrayaan 3: Get Chandrayaan 3 Ne..., Text: May 01, 2025 5:11 am “There is an anomalous deplet...
+2025-06-10 12:21:07,230 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:21:08,001 - INFO - Detected language: English
+2025-06-10 12:21:08,001 - INFO - Input language detected: English
+2025-06-10 12:21:08,002 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:21:08,003 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:21:09,540 - INFO - Translated text: Latest News on Chandrayaan 3: Get Chandrayaan 3 Ne...
+2025-06-10 12:21:09,543 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:21:11,945 - INFO - Translated text: May 1, 2025 5:11 am “There is an anomalous depleti...
+2025-06-10 12:21:11,953 - INFO - Extracted dates: ['May 01, 2025', 'March 17, 2025', 'March 12, 2025', 'February 20, 2025', 'February 09, 2025', 'October 27, 2024']
+2025-06-10 12:21:12,012 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:21:12,015 - INFO - Searching Google CSE with query: Latest News on Chandrayaan 3: Get Chandrayaan 3 News Updates along with Photos, Videos and Latest News Headlines | The Indian Express May 1, 2025 5:11 am “There is an anomalous depletion in sodium and potassium at the site, whereas th May 01, 2025 March 17, 2025 March 12, 2025 February 20, 2025 February 09, 2025 October 27, 2024
+2025-06-10 12:24:43,211 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:24:43,212 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:24:43,212 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:24:43,233 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:24:43,279 - INFO - Vectorizing text
+2025-06-10 12:24:43,281 - INFO - Extracting numerical features
+2025-06-10 12:24:43,283 - INFO - Combining features
+2025-06-10 12:24:43,284 - INFO - Making prediction with WELFake model
+2025-06-10 12:24:43,316 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:24:43,317 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:24:44,865 - INFO - Prediction Log: {'title': 'Latest News on Chandrayaan 3: Get Chandrayaan 3 News Updates along with Photos, Videos and Latest News Headlines | The Indian Express', 'text': "May 01, 2025 5:11 am “There is an anomalous depletion in sodium and potassium at the site, whereas there is an enrichment in sulfur found in the soils at the highland landing site,” said the study published in the journal Nature Communications Earth and Environment. March 17, 2025 5:03 pm Space is an area where India has been functioning almost at the cutting edge, and there's evidence that the brain drain is starting to reverse. March 12, 2025 8:14 am As of now, water-ice on the Moon is underst", 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:25:45,659 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:25:46,159 - INFO - Detected language: English
+2025-06-10 12:25:46,160 - INFO - Input language detected: English
+2025-06-10 12:25:46,162 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:25:46,166 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:25:47,629 - INFO - Translated text: Little to Show Post-Operation Sindhoor, Pakistan T...
+2025-06-10 12:25:47,648 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:25:49,229 - INFO - Translated text: New Delhi: Did Pakistan hit a Sukhoi-30MKI parked ...
+2025-06-10 12:25:49,232 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:25:49,235 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:25:49,237 - INFO - Searching Google CSE with query: Little to Show Post-Operation Sindhoor, Pakistan Tries Again With Doctored Images New Delhi: Did Pakistan hit a Sukhoi-30MKI parked at Adampur air base in Punjab? Or destroy an S-400 June 10, 2025
+2025-06-10 12:26:02,032 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:26:02,043 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:26:02,045 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:26:02,245 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:26:02,434 - INFO - Vectorizing text
+2025-06-10 12:26:02,437 - INFO - Extracting numerical features
+2025-06-10 12:26:02,438 - INFO - Combining features
+2025-06-10 12:26:02,439 - INFO - Making prediction with WELFake model
+2025-06-10 12:26:02,591 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:26:02,603 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:26:04,404 - INFO - Prediction Log: {'title': 'Little To Show Post Operation Sindoor, Pak Tries Hard Again With Doctored Images', 'text': "New Delhi:\nDid Pakistan hit a Sukhoi-30MKI parked at Adampur air base in Punjab? Or destroy an S-400 surface-to-air missile unit at Bhuj airfield in Gujarat? Those are the two latest fantasies being pushed as part of a month-long campaign of wishful thinking and weaponised misinformation from Islamabad.\n\nIn the wake of India's Operation Sindoor, Pakistan had scrambled to project a counter-narrative of success in hitting Indian airfields and installations. With little to show by way of actual dam", 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:28:05,029 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:28:05,511 - INFO - Detected language: English
+2025-06-10 12:28:05,513 - INFO - Input language detected: English
+2025-06-10 12:28:05,514 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:28:05,514 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:28:06,936 - INFO - Translated text: Operation Sindoor: Indian Armed Forces carried out...
+2025-06-10 12:28:06,936 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:28:08,302 - INFO - Translated text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:28:08,305 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:28:08,306 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:28:08,307 - INFO - Searching Google CSE with query: Operation Sindoor: Indian Armed Forces carried out precision strikes at terrorist camps. A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, striking terrorist infrast June 10, 2025
+2025-06-10 12:28:15,120 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:28:15,123 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:28:15,125 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:28:15,184 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:28:15,289 - INFO - Vectorizing text
+2025-06-10 12:28:15,296 - INFO - Extracting numerical features
+2025-06-10 12:28:15,303 - INFO - Combining features
+2025-06-10 12:28:15,310 - INFO - Making prediction with WELFake model
+2025-06-10 12:28:15,370 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:28:15,371 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:28:17,152 - INFO - Prediction Log: {'title': 'OPERATION SINDOOR : INDIAN ARMED FORCES CARRIED OUT PRECISION STRIKE AT TERRORIST CAMPS', 'text': 'A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastructure in Pakistan and Pakistan-occupied Jammu and Kashmir from where terrorist attacks against India have been planned and directed.\n\nAltogether, nine (9) sites have been targeted.\n\nOur actions have been focused, measured and non-escalatory in nature. No Pakistani military facilities have been targeted. India has demonstrated considerable restraint in selection of targets and method of execution.', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:29:16,693 - INFO - Scraping URL: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2127370
+2025-06-10 12:29:16,831 - INFO - Scraped Title: 
+	Press Release:Press Information Bureau
+..., Text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:29:16,833 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:29:17,426 - INFO - Detected language: English
+2025-06-10 12:29:17,427 - INFO - Input language detected: English
+2025-06-10 12:29:17,428 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:29:17,428 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:29:18,647 - INFO - Translated text: Press Release: Press Information Bureau...
+2025-06-10 12:29:18,649 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:29:20,210 - INFO - Translated text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:29:20,211 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:29:20,212 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:29:20,212 - INFO - Searching Google CSE with query: Press Release: Press Information Bureau A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, targeting terrorist infras June 10, 2025
+2025-06-10 12:29:25,747 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:29:25,748 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:29:25,748 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:29:25,811 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:29:25,889 - INFO - Vectorizing text
+2025-06-10 12:29:25,892 - INFO - Extracting numerical features
+2025-06-10 12:29:25,898 - INFO - Combining features
+2025-06-10 12:29:25,901 - INFO - Making prediction with WELFake model
+2025-06-10 12:29:25,960 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:29:25,962 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:29:27,721 - INFO - Prediction Log: {'title': '\r\n\tPress Release:Press Information Bureau\r\n', 'text': 'A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastructure in Pakistan and Pakistan-occupied Jammu and Kashmir from where terrorist attacks against India have been planned and directed. Altogether, nine (9) sites have been targeted. Our actions have been focused, measured and non-escalatory in nature. No Pakistani military facilities have been targeted. India has demonstrated considerable restraint in selection of targets and method of execution. T', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:31:00,009 - INFO - Scraping URL: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2127370
+2025-06-10 12:31:00,142 - INFO - Scraped Title: 
+	Press Release:Press Information Bureau
+..., Text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:31:00,143 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:31:00,852 - INFO - Detected language: English
+2025-06-10 12:31:00,853 - INFO - Input language detected: English
+2025-06-10 12:31:00,854 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:31:00,855 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:31:02,138 - INFO - Translated text: Press Release: Press Information Bureau...
+2025-06-10 12:31:02,138 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:31:03,380 - INFO - Translated text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:31:03,383 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:31:03,385 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:31:03,386 - INFO - Searching Google CSE with query: Press Release: Press Information Bureau A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastr June 10, 2025
+2025-06-10 12:31:09,218 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:31:09,218 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:31:09,219 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:31:09,262 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:31:09,359 - INFO - Vectorizing text
+2025-06-10 12:31:09,361 - INFO - Extracting numerical features
+2025-06-10 12:31:09,364 - INFO - Combining features
+2025-06-10 12:31:09,365 - INFO - Making prediction with WELFake model
+2025-06-10 12:31:09,412 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:31:09,413 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:31:10,928 - INFO - Prediction Log: {'title': '\r\n\tPress Release:Press Information Bureau\r\n', 'text': 'A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastructure in Pakistan and Pakistan-occupied Jammu and Kashmir from where terrorist attacks against India have been planned and directed. Altogether, nine (9) sites have been targeted. Our actions have been focused, measured and non-escalatory in nature. No Pakistani military facilities have been targeted. India has demonstrated considerable restraint in selection of targets and method of execution. T', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:33:34,819 - INFO - Scraping URL: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2127370
+2025-06-10 12:33:34,959 - INFO - Scraped Title: 
+	Press Release:Press Information Bureau
+..., Text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:33:34,960 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:33:35,686 - INFO - Detected language: English
+2025-06-10 12:33:35,687 - INFO - Input language detected: English
+2025-06-10 12:33:35,687 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:33:35,688 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:33:36,236 - INFO - Translated text: Press Release: Press Information Bureau...
+2025-06-10 12:33:36,237 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:33:37,483 - INFO - Translated text: A little while ago, the Indian Armed Forces launch...
+2025-06-10 12:33:37,484 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:33:37,485 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:33:37,485 - INFO - Searching Google CSE with query: Press Release: Press Information Bureau A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastr June 10, 2025
+2025-06-10 12:33:41,851 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:33:41,852 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:33:41,852 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:33:41,872 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:33:41,914 - INFO - Vectorizing text
+2025-06-10 12:33:41,915 - INFO - Extracting numerical features
+2025-06-10 12:33:41,916 - INFO - Combining features
+2025-06-10 12:33:41,916 - INFO - Making prediction with WELFake model
+2025-06-10 12:33:41,931 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 12:33:41,931 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:33:43,402 - INFO - Prediction Log: {'title': '\r\n\tPress Release:Press Information Bureau\r\n', 'text': 'A little while ago, the Indian Armed Forces launched ‘OPERATION SINDOOR’, hitting terrorist infrastructure in Pakistan and Pakistan-occupied Jammu and Kashmir from where terrorist attacks against India have been planned and directed. Altogether, nine (9) sites have been targeted. Our actions have been focused, measured and non-escalatory in nature. No Pakistani military facilities have been targeted. India has demonstrated considerable restraint in selection of targets and method of execution. T', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 1.0, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:39:55,074 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:39:55,864 - INFO - Detected language: English
+2025-06-10 12:39:55,864 - INFO - Input language detected: English
+2025-06-10 12:39:55,865 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:39:55,865 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:39:57,147 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 12:39:57,149 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:39:57,710 - INFO - Translated text: In 2025, CSK won the IPL title....
+2025-06-10 12:39:57,715 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:39:57,716 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:39:57,716 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. In 2025, CSK won the IPL title. June 10, 2025
+2025-06-10 12:40:02,513 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:40:02,516 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:40:02,517 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:40:04,336 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:40:04,436 - INFO - Vectorizing text
+2025-06-10 12:40:04,440 - INFO - Extracting numerical features
+2025-06-10 12:40:04,441 - INFO - Combining features
+2025-06-10 12:40:04,442 - INFO - Making prediction with WELFake model
+2025-06-10 12:40:04,496 - INFO - WELFake Prediction: REAL (Confidence: 0.9998)
+2025-06-10 12:40:04,497 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:40:05,839 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'in year 2025 csk won ipl title', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9997969648266013, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 12:42:36,121 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 12:42:36,781 - INFO - Detected language: English
+2025-06-10 12:42:36,782 - INFO - Input language detected: English
+2025-06-10 12:42:36,783 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 12:42:36,783 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:42:38,124 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 12:42:38,125 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 12:42:38,681 - INFO - Translated text: In 2025, CSK won the IPL title....
+2025-06-10 12:42:38,682 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 12:42:38,684 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 12:42:38,685 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. In 2025, CSK won the IPL title. June 10, 2025
+2025-06-10 12:42:42,423 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 12:42:42,425 - INFO - Preprocessing input text for WELFake
+2025-06-10 12:42:42,426 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 12:42:42,474 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 12:42:42,570 - INFO - Vectorizing text
+2025-06-10 12:42:42,572 - INFO - Extracting numerical features
+2025-06-10 12:42:42,574 - INFO - Combining features
+2025-06-10 12:42:42,577 - INFO - Making prediction with WELFake model
+2025-06-10 12:42:42,633 - INFO - WELFake Prediction: REAL (Confidence: 0.9998)
+2025-06-10 12:42:42,634 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 12:42:44,116 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'in year 2025 csk won ipl title', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9997969648266013, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'gemini_verdict': 'Unable to Verify', 'gemini_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
