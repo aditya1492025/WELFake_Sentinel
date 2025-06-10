@@ -8,9 +8,10 @@ import requests
 from bs4 import BeautifulSoup
 import google.generativeai as genai
 import os
-import asyncio
 from dateutil.parser import parse
 import datetime
+import base64
+from io import BytesIO
 
 # Configure logging
 logging.basicConfig(
@@ -249,7 +250,12 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
             )
 
         if image:
-            # For image input, pass the image directly to Gemini
+            # Read and encode the image for Gemini API
+            logger.info("Processing image input for Gemini fact-checking")
+            image_bytes = image.read()  # Read the image as bytes
+            encoded_image = base64.b64encode(image_bytes).decode('utf-8')  # Encode to base64 string
+
+            # Create the prompt and pass the image to Gemini
             prompt = (
                 "Analyze the following image containing news content. "
                 "Fact-check the content and provide:\n"
@@ -258,9 +264,10 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
                 "3. A concise explanation (2-3 sentences) for your verdict.\n"
                 "4. A list of 3 actionable tips for users to avoid misinformation, each starting with '- '."
             )
-            # Note: In a real implementation, you'd upload the image to Gemini's API.
-            # Since we can't directly handle images, we'll simulate the response.
-            response = gemini_model.generate_content(prompt)  # Simulated for text-based response
+            # Pass the image and prompt to Gemini
+            response = gemini_model.generate_content(
+                [prompt, {"mime_type": "image/jpeg", "data": encoded_image}]
+            )
         else:
             # For text input
             prompt = (
@@ -307,7 +314,7 @@ def gemini_verdict_and_explanation(title, text, image, welfake_label=None, welfa
             ["Cross-check with credible sources.", "Be wary of sensational headlines.", "Check the author's credentials."]
         )
 
-async def predict_welfake(title=None, text=None, url=None, image=None):
+def predict_welfake(title=None, text=None, url=None, image=None):
     """Predict if a news article is FAKE (0) or REAL (1), with the final verdict based on both RAG and Gemini."""
     try:
         if url:
@@ -315,6 +322,7 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
         if image:
             title = "Image-based News"  # Placeholder title for image input
             text = ""  # Text is not used for image input
+            logger.info("Image input detected, proceeding with Gemini fact-checking")
         elif not title or not text:
             raise ValueError("Title and text are required for non-image inputs")
 
@@ -344,9 +352,6 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
             news_verdict, news_confidence, news_explanation = fact_check_news_with_gemini(
                 title, text, extracted_dates
             )
-        else:
-            # For image inputs, skip RAG fact-check and rely on Gemini
-            pass
 
         # Run WELFake model to provide supplementary context
         welfake_label, welfake_confidence = None, None
@@ -384,18 +389,9 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
             news_verdict, news_confidence, news_explanation
         )
 
-        # For image inputs, override explanation and use Gemini's verdict directly
-        if image:
-            # Simulate fact-check verdict for images (since RAG isn't applied)
-            explanation = "The claim that Lewandowski retired on June 10, 2025, lacks credible backing, as recent trends suggest he is still active."
-            news_verdict = "News: Inaccurate"
-            news_confidence = 0.85  # Simulated RAG verdict for consistency
-            gemini_verdict = "Gemini Verdict: Inaccurate"
-            gemini_confidence = 0.87  # Simulated Gemini verdict
-
         # Combine RAG and Gemini verdicts
         # Simplify verdicts to a common format for comparison
-        rag_verdict_simple = news_verdict.replace("News: ", "")
+        rag_verdict_simple = news_verdict.replace("News: ", "") if news_verdict else "Unable to Verify"
         gemini_verdict_simple = gemini_verdict.replace("Gemini Verdict: ", "")
 
         # Determine combined verdict
@@ -406,9 +402,9 @@ async def predict_welfake(title=None, text=None, url=None, image=None):
 
         # Determine combined confidence
         if combined_verdict == "Unable to Verify":
-            combined_confidence = min(news_confidence, gemini_confidence)  # Lower confidence if disagreement
+            combined_confidence = min(news_confidence or 0.5, gemini_confidence)  # Lower confidence if disagreement
         else:
-            combined_confidence = (news_confidence + gemini_confidence) / 2  # Average confidence if agreement
+            combined_confidence = ((news_confidence or 0.5) + gemini_confidence) / 2  # Average confidence if agreement
 
         # Map combined verdict to final prediction
         if combined_verdict == "Accurate":

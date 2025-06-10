@@ -1,11 +1,6 @@
 # Streamlit frontend for fake news detection portal with Bootstrap styling
 import streamlit as st
-import asyncio
-import nest_asyncio
 from predict_welfake import predict_welfake
-
-# Apply nest_asyncio to allow asyncio.run in Streamlit's event loop
-nest_asyncio.apply()
 
 # Streamlit page configuration
 st.set_page_config(page_title="Fake News Detector", layout="wide")
@@ -16,8 +11,8 @@ st.markdown("""
     <style>
         .custom-container {
             background-color: #f8f9fa;
-            padding: 2px;
-            min-height: 1vh;
+            padding: 20px;
+            min-height: 100vh;
         }
         .input-field {
             margin-bottom: 1rem;
@@ -43,7 +38,7 @@ st.markdown("""
         }
         .form-container {
             background-color: #ffffff;
-            padding: 2px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
@@ -94,9 +89,8 @@ if submit_button:
                 # For image input, pass the raw file object (predict_welfake will handle it)
                 image_input = image if input_type == "Image" else None
 
-                # Run the async prediction function
-                loop = asyncio.get_event_loop()
-                label, confidence, explanation, user_tips = loop.run_until_complete(predict_welfake(title=title, text=text, url=url, image=image_input))
+                # Run the prediction function (synchronous)
+                label, confidence, explanation, user_tips = predict_welfake(title=title, text=text, url=url, image=image_input)
                 
                 # Display success message
                 st.success("Analysis complete!")
@@ -105,14 +99,10 @@ if submit_button:
                 st.markdown("<div class='result-box'>", unsafe_allow_html=True)
                 if label == "Unable to Decide":
                     prediction_class = "prediction-uncertain"
-                elif label == "FAKE":
-                    prediction_class = "prediction-fake"
-                elif label == "REAL":
-                    prediction_class = "prediction-real"
                 else:
-                    prediction_class = "prediction-uncertain" 
+                    prediction_class = "prediction-fake" if label == "FAKE" else "prediction-real"
                 
-                # Display prediction and confidence (corrected formatting)
+                # Display prediction and confidence
                 #st.markdown(f"<h3>Prediction: <span class='{prediction_class}'>{label}</span></h3>", unsafe_allow_html=True)
                 #st.markdown(f"<p><strong>Confidence:</strong> {confidence * 100:.2f}%</p>", unsafe_allow_html=True)
                 st.markdown(f"<p><strong>Explanation:</strong> {explanation}</p>", unsafe_allow_html=True)
