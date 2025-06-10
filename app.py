@@ -105,8 +105,12 @@ if submit_button:
                 st.markdown("<div class='result-box'>", unsafe_allow_html=True)
                 if label == "Unable to Decide":
                     prediction_class = "prediction-uncertain"
+                elif label == "FAKE":
+                    prediction_class = "prediction-fake"
+                elif label == "REAL":
+                    prediction_class = "prediction-real"
                 else:
-                    prediction_class = "prediction-fake" if label == "FAKE" else "prediction-real"
+                    prediction_class = "prediction-uncertain" 
                 
                 # Display prediction and confidence (corrected formatting)
                 #st.markdown(f"<h3>Prediction: <span class='{prediction_class}'>{label}</span></h3>", unsafe_allow_html=True)
