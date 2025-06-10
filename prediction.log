@@ -235,3 +235,160 @@
 2025-06-09 22:22:16,395 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
 2025-06-09 22:22:17,372 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
 2025-06-09 22:22:17,372 - INFO - Prediction Log: {'title': 'Image-based News', 'text': 'Image input', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9034395174344348, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-10 10:25:46,435 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 10:25:47,244 - INFO - Detected language: English
+2025-06-10 10:25:47,244 - INFO - Input language detected: English
+2025-06-10 10:25:47,245 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 10:25:47,245 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:25:48,585 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 10:25:48,586 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:25:49,178 - INFO - Translated text: In 2025, CSK won the IPL....
+2025-06-10 10:25:49,179 - INFO - Preprocessing input text for WELFake
+2025-06-10 10:25:49,180 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 10:26:02,310 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 10:26:02,501 - INFO - Vectorizing text
+2025-06-10 10:26:02,507 - INFO - Extracting numerical features
+2025-06-10 10:26:02,514 - INFO - Combining features
+2025-06-10 10:26:02,521 - INFO - Making prediction with WELFake model
+2025-06-10 10:26:02,552 - INFO - WELFake Prediction: REAL (Confidence: 0.9985)
+2025-06-10 10:26:02,553 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 10:26:04,033 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-10 10:26:04,033 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'in 2025 csk won ipl', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9985339939042387, 'final_prediction': 'FAKE', 'final_confidence': 0.9}
+2025-06-10 10:27:06,879 - INFO - Scraping URL: https://ndtv.in/cricket/ab-de-villiers-on-most-dangerous-batsman-in-the-world-cricket-not-chris-gayle-ricky-ponting-hindi-8630065?tbref=hp
+2025-06-10 10:27:07,515 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 10:27:08,025 - INFO - Detected language: Hindi
+2025-06-10 10:27:08,026 - INFO - Input language detected: Hindi
+2025-06-10 10:27:08,026 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 10:27:08,026 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:27:09,462 - INFO - Translated text: Not Chris Gayle, AB de Villiers names this cricket...
+2025-06-10 10:27:09,463 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:27:11,746 - INFO - Translated text: AB de Villiers on Ricky Ponting: AB de Villiers, o...
+2025-06-10 10:27:11,747 - INFO - Preprocessing input text for WELFake
+2025-06-10 10:27:11,747 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 10:27:11,762 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 10:27:11,814 - INFO - Vectorizing text
+2025-06-10 10:27:11,816 - INFO - Extracting numerical features
+2025-06-10 10:27:11,818 - INFO - Combining features
+2025-06-10 10:27:11,820 - INFO - Making prediction with WELFake model
+2025-06-10 10:27:11,848 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 10:27:11,849 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 10:27:13,774 - INFO - Gemini Verdict: FAKE (Confidence: 90.00%)
+2025-06-10 10:27:13,774 - INFO - Translating explanation and tips back to Hindi
+2025-06-10 10:27:13,775 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-10 10:27:15,804 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-10 10:27:16,630 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-10 10:27:18,021 - INFO - Translating text to Hindi with Gemini 1.5 Flash
+2025-06-10 10:59:48,438 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 10:59:49,494 - INFO - Detected language: English
+2025-06-10 10:59:49,495 - INFO - Input language detected: English
+2025-06-10 10:59:49,496 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 10:59:49,496 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:59:51,150 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 10:59:51,151 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 10:59:52,450 - INFO - Translated text: This year CSK won the IPL trophy....
+2025-06-10 10:59:52,454 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 10:59:52,454 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 10:59:52,455 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. This year CSK won the IPL trophy. June 10, 2025
+2025-06-10 11:00:15,212 - ERROR - Scraping search result failed: HTTPSConnectionPool(host='www.sportskeeda.com', port=443): Read timed out.
+2025-06-10 11:00:16,921 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 11:00:16,922 - INFO - Preprocessing input text for WELFake
+2025-06-10 11:00:16,923 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 11:00:17,802 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 11:00:17,856 - INFO - Vectorizing text
+2025-06-10 11:00:17,858 - INFO - Extracting numerical features
+2025-06-10 11:00:17,859 - INFO - Combining features
+2025-06-10 11:00:17,861 - INFO - Making prediction with WELFake model
+2025-06-10 11:00:17,888 - INFO - WELFake Prediction: REAL (Confidence: 0.9988)
+2025-06-10 11:00:17,890 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 11:00:20,046 - INFO - Gemini Verdict: Unable to Decide (Confidence: 50.00%)
+2025-06-10 11:00:20,046 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'this year csk won the trophy of ipl', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9988482136528983, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 11:01:54,346 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 11:01:55,157 - INFO - Detected language: English
+2025-06-10 11:01:55,158 - INFO - Input language detected: English
+2025-06-10 11:01:55,159 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 11:01:55,159 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:01:57,998 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 11:01:57,999 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:01:58,580 - INFO - Translated text: This year, CSK won the IPL trophy and RCB lost....
+2025-06-10 11:01:58,580 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 11:01:58,581 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 11:01:58,581 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. This year, CSK won the IPL trophy and RCB lost. June 10, 2025
+2025-06-10 11:02:17,796 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 11:02:17,797 - INFO - Preprocessing input text for WELFake
+2025-06-10 11:02:17,797 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 11:02:17,823 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 11:02:17,871 - INFO - Vectorizing text
+2025-06-10 11:02:17,873 - INFO - Extracting numerical features
+2025-06-10 11:02:17,874 - INFO - Combining features
+2025-06-10 11:02:17,875 - INFO - Making prediction with WELFake model
+2025-06-10 11:02:17,911 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 11:02:17,912 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 11:02:20,029 - INFO - Gemini Verdict: Unable to Decide (Confidence: 50.00%)
+2025-06-10 11:02:20,030 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'this year csk won the trophy of ipl and rcb lost', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999775630487063, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 11:05:57,782 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 11:05:58,747 - INFO - Detected language: English
+2025-06-10 11:05:58,748 - INFO - Input language detected: English
+2025-06-10 11:05:58,748 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 11:05:58,749 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:06:00,347 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 11:06:00,349 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:06:00,963 - INFO - Translated text: This year, CSK won the IPL title by defeating RCB....
+2025-06-10 11:06:00,964 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 11:06:00,964 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 11:06:00,965 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. This year, CSK won the IPL title by defeating RCB. June 10, 2025
+2025-06-10 11:06:19,906 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 11:06:19,907 - INFO - Preprocessing input text for WELFake
+2025-06-10 11:06:19,908 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 11:06:19,953 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 11:06:20,037 - INFO - Vectorizing text
+2025-06-10 11:06:20,039 - INFO - Extracting numerical features
+2025-06-10 11:06:20,041 - INFO - Combining features
+2025-06-10 11:06:20,043 - INFO - Making prediction with WELFake model
+2025-06-10 11:06:20,087 - INFO - WELFake Prediction: REAL (Confidence: 1.0000)
+2025-06-10 11:06:20,087 - INFO - Generating verdict and explanation with Gemini 1.5 Flash
+2025-06-10 11:06:21,685 - INFO - Gemini Verdict: Unable to Decide (Confidence: 50.00%)
+2025-06-10 11:06:21,686 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'this year csk won the ipl title by defeating rcb', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999789756409679, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 11:18:19,998 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 11:18:21,777 - INFO - Detected language: English
+2025-06-10 11:18:21,781 - INFO - Input language detected: English
+2025-06-10 11:18:21,785 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 11:18:21,786 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:18:35,481 - INFO - Translated text: CSK wins IPL 2025...
+2025-06-10 11:18:35,482 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:18:36,385 - INFO - Translated text: This year, CSK won the IPL final, defeating RCB....
+2025-06-10 11:18:36,385 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 11:18:36,385 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 11:18:36,388 - INFO - Searching Google CSE with query: CSK wins IPL 2025 This year, CSK won the IPL final, defeating RCB. June 10, 2025
+2025-06-10 11:18:51,473 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 11:18:51,474 - INFO - Preprocessing input text for WELFake
+2025-06-10 11:18:51,476 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 11:18:51,636 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 11:18:52,149 - INFO - Vectorizing text
+2025-06-10 11:18:52,155 - INFO - Extracting numerical features
+2025-06-10 11:18:52,162 - INFO - Combining features
+2025-06-10 11:18:52,165 - INFO - Making prediction with WELFake model
+2025-06-10 11:18:52,223 - INFO - WELFake Prediction: REAL (Confidence: 0.9999)
+2025-06-10 11:18:52,223 - INFO - Generating explanation with Gemini 1.5 Flash
+2025-06-10 11:18:53,686 - INFO - Prediction Log: {'title': 'csk wins ipl 2025', 'text': 'this year csk won the ipl final defeating rcb', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9999087115992076, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
+2025-06-10 11:29:06,811 - INFO - Detecting language with Gemini 1.5 Flash
+2025-06-10 11:29:08,513 - INFO - Detected language: English
+2025-06-10 11:29:08,514 - INFO - Input language detected: English
+2025-06-10 11:29:08,515 - INFO - Translating title and text to English with Gemini 1.5 Flash
+2025-06-10 11:29:08,516 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:29:09,853 - INFO - Translated text: CSK won the 2025 IPL Tournament....
+2025-06-10 11:29:09,853 - INFO - Translating text to English with Gemini 1.5 Flash
+2025-06-10 11:29:10,790 - INFO - Translated text: This year, 2025, CSK wins the IPL final....
+2025-06-10 11:29:10,792 - INFO - Extracted dates: ['June 10, 2025']
+2025-06-10 11:29:10,792 - INFO - Fact-checking news content with Gemini 1.5 Flash
+2025-06-10 11:29:10,792 - INFO - Searching Google CSE with query: CSK won the 2025 IPL Tournament. This year, 2025, CSK wins the IPL final. June 10, 2025
+2025-06-10 11:29:27,658 - INFO - News Fact-Check Verdict: Unable to Verify (Confidence: 50.00%)
+2025-06-10 11:29:27,659 - INFO - Preprocessing input text for WELFake
+2025-06-10 11:29:27,660 - INFO - Loading model from welfake_voting_classifier.joblib
+2025-06-10 11:29:29,626 - INFO - Loading vectorizer from final_vectorizer.joblib
+2025-06-10 11:29:29,732 - INFO - Vectorizing text
+2025-06-10 11:29:29,735 - INFO - Extracting numerical features
+2025-06-10 11:29:29,737 - INFO - Combining features
+2025-06-10 11:29:29,740 - INFO - Making prediction with WELFake model
+2025-06-10 11:29:29,786 - INFO - WELFake Prediction: REAL (Confidence: 0.9997)
+2025-06-10 11:29:29,787 - INFO - Generating explanation with Gemini 1.5 Flash
+2025-06-10 11:29:31,613 - INFO - Prediction Log: {'title': 'CSK won 2025 IPL Tournament', 'text': 'this yeear that is 2025 csk wins ipl final ', 'input_language': 'English', 'welfake_prediction': 'REAL', 'welfake_confidence': 0.9997490533312133, 'news_verdict': 'Unable to Verify', 'news_confidence': 0.5, 'final_prediction': 'Unable to Decide', 'final_confidence': 0.5}
