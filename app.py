@@ -117,5 +117,5 @@ if submit_button:
 
 # Footer
 st.markdown("<hr>", unsafe_allow_html=True)
-st.markdown("<p class='text-center text-muted'>Built for INNOHACK 2025 by Team UNIT AI</p>", unsafe_allow_html=True)
+st.markdown("<p class='text-center text-muted'>Built by Aditya Siras</p>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
