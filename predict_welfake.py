@@ -29,7 +29,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("Gemini API key not set. Set the 'GEMINI_API_KEY' environment variable.")
 genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel('gemini-1.5-flash-latest')
+gemini_model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Configure Google Custom Search Engine (CSE)
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -455,3 +455,4 @@ def predict_welfake(title=None, text=None, url=None, image=None):
         logger.error(f"Prediction failed: {str(e)}")
 
         raise
+
